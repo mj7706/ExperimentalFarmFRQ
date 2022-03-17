@@ -45,7 +45,7 @@ public class ExperimentalFarm
             }
         }
 
-        return true; // stub value
+        return true;
     }
 
     /** Returns an arraylist of Plots

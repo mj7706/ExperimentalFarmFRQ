@@ -15,6 +15,14 @@ public class ExperimentalFarm
     public Plot getHighestYield(String c)
     {
         /* to be implemented in part (a) */
+        Plot highestPlot = farmPlots[0][0];
+        for (int row = 0; row < farmPlots.length(); row++) {
+            for (int col = 0; c < farmPlots[0].length(); col++) {
+                if (farmPlots[row][col].getCropYield() > highestPlot.getCropYield()) {
+
+                }
+            }
+        }
 
         return null; // stub value
     }

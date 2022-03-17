@@ -15,16 +15,21 @@ public class ExperimentalFarm
     public Plot getHighestYield(String c)
     {
         /* to be implemented in part (a) */
-        Plot highestPlot = farmPlots[0][0];
-        for (int row = 0; row < farmPlots.length(); row++) {
-            for (int col = 0; c < farmPlots[0].length(); col++) {
-                if (farmPlots[row][col].getCropYield() > highestPlot.getCropYield()) {
-
+        Plot highestPlot = null;
+        for (int row = 0; row < farmPlots.length; row++) {
+            for (int col = 0; col < farmPlots[0].length; col++) {
+                if (farmPlots[row][col].getCropType().equals(c)) {
+                    if (highestPlot == null) {
+                        highestPlot = farmPlots[row][col];
+                    }
+                    else if (farmPlots[row][col].getCropYield() > highestPlot.getCropYield()) {
+                        highestPlot = farmPlots[row][col];
+                    }
                 }
+
             }
         }
-
-        return null; // stub value
+        return highestPlot;
     }
 
     /** Returns true if all plots in a given column in
@@ -34,9 +39,13 @@ public class ExperimentalFarm
      */
     public boolean sameCrop(int col)
     {
-        /* to be implemented in part (b) */
+        for (int row = 1; row < farmPlots.length; row++) {
+            if (!(farmPlots[row][col].getCropType().equals(farmPlots[row-1][col].getCropType()))) {
+                return false;
+            }
+        }
 
-        return false; // stub value
+        return true; // stub value
     }
 
     /** Returns an arraylist of Plots
